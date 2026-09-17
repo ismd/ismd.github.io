@@ -102,13 +102,6 @@
          .tab { cursor: pointer; flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; border: 0; border-radius: 6px; min-height: 40px; padding: 7px 12px; background: transparent; color: var(--quiet); font-size: 1rem; line-height: 1.4; transition: background .15s ease, color .15s ease; }
          .tab:hover { color: var(--paper); background: #443954; }
          .tab[aria-selected="true"] { background: var(--lilac); color: var(--ink); }
-         .has-tabs .panels { scrollbar-width: thin; scrollbar-color: #78658d #342d47; }
-         @media (min-width: 960px) and (hover: hover) and (pointer: fine) {
-             .has-tabs .panels { height: 24rem; overflow: auto; overscroll-behavior: contain; }
-         }
-         @media (min-width: 960px) and (max-height: 800px) and (hover: hover) and (pointer: fine) {
-             .has-tabs .panels { height: 22.5rem; }
-         }
          .panel { padding: 20px 23px 23px; }
          .panel-label { color: var(--quiet); font-size: 1rem; font-weight: 400; }
          .career-summary { display: flex; flex-wrap: wrap; gap: 4px 15px; justify-content: space-between; align-items: center; margin-bottom: 23px; font-size: 1rem; color: var(--quiet); }
@@ -153,7 +146,6 @@
          .email:hover { text-decoration: underline; text-underline-offset: 5px; }
          .contact .text-link:hover { color: var(--ink); }
          .contact a:focus-visible { outline-color: var(--ink); }
-         @media (min-width: 960px) and (min-height: 680px) and (hover: hover) and (pointer: fine) { .page:has(.has-tabs) { height: 100vh; height: 100dvh; } }
          @media (min-width: 960px) and (max-height: 800px) {
              .header { min-height: 64px; }
              .main { padding-block: 16px; gap: 16px; }
@@ -221,13 +213,11 @@
          @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
          @media print {
              :root { --ink: #fff; --paper: #111; --quiet: #444; --lime: #222; --lilac: #333; --line: #bbb; color-scheme: light; }
-             .page:has(.has-tabs) { height: auto; }
              .wrap { width: 100%; }
              .main { padding: 15px 0; }
              .ambient { display: none; }
              .header nav, .tablist { display: none !important; }
              .insight, .contact { background: white; color: #111; }
-             .has-tabs .panels { height: auto; overflow: visible; }
              .panel[hidden] { display: block !important; }
              .has-tabs .projects-panel > .panel-label { display: block; }
              .career-item, .project { break-inside: avoid; }
@@ -348,7 +338,6 @@
                      tab.tabIndex = selected ? 0 : -1;
                      panels[i].hidden = !selected;
                  });
-                 widget.querySelector('.panels').scrollTop = 0;
                  if (moveFocus) tabs[index].focus();
              };
              tabs.forEach((tab, index) => {
