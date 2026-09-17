@@ -213,26 +213,40 @@
       Три остановки вместо двух: у двухстопного градиента спад линейный
       и край читается как кольцо. */
    .ambient__spot {
-     position: absolute;
-     top: 0;
-     left: 0;
-     width:  var(--spot-size);
-     height: var(--spot-size);
-     margin: calc(var(--spot-size) / -2) 0 0 calc(var(--spot-size) / -2);
+       position: absolute;
+       top: 0;
+       left: 0;
+       width:  var(--spot-size);
+       height: var(--spot-size);
+       margin: calc(var(--spot-size) / -2) 0 0 calc(var(--spot-size) / -2);
 
-     background: radial-gradient(closest-side,
+       background: radial-gradient(closest-side,
        rgba(214, 245, 120, .10) 0%,
        rgba(214, 245, 120, .045) 40%,
        transparent 72%);
 
-     will-change: transform;
+       will-change: transform;
    }
 
    /* Без мыши подсвечивать нечего — оставляем пятно в зоне заголовка */
    @media (hover: none), (pointer: coarse) {
-     .ambient__spot { transform: translate3d(30vw, 38vh, 0) }
+       .ambient__spot { transform: translate3d(30vw, 38vh, 0) }
    }
   </style>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+   (function(m,e,t,r,i,k,a){
+       m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+   })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=112742463', 'ym');
+
+   ym(112742463, 'init', {ssr:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/112742463" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
