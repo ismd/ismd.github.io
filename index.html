@@ -79,25 +79,25 @@
          .text-link:hover span:first-child::after { transform: scaleX(1); }
          .text-link:hover { color: var(--lime); }
          .arrow { width: 18px; height: 18px; }
-         .main { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 24px; padding-block: 28px; }
+         .main { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 16px; padding-block: 28px; }
          .identity { margin-bottom: var(--rhythm); }
          h1 { font-family: Space, Inter, sans-serif; font-weight: 600; font-size: clamp(3rem, 4.8vw, 4rem); line-height: 1.03; letter-spacing: -.06em; }
          h1 span { display: block; }
          .first-name { color: var(--lime); }
          .last-name { color: var(--paper); font-family: Inter, "Segoe UI", sans-serif; font-weight: 400; font-size: 1.04em; letter-spacing: -.065em; }
          .stage { display: grid; grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); align-items: center; gap: clamp(32px, 4.5vw, 64px); }
-         .profile { --rhythm: 37px; padding-top: 3px; }
+         .profile { --rhythm: 30px; padding-top: 3px; }
          .role { font-family: Space, Inter, sans-serif; font-size: clamp(1.375rem, 2vw, 1.75rem); line-height: 1.3; letter-spacing: -.035em; }
          .role span { color: var(--quiet); }
          .intro { margin-top: var(--rhythm); color: var(--quiet); font-size: 1.0625rem; line-height: 1.65; max-width: 33rem; }
          .intro strong { color: var(--paper); font-weight: 400; }
-         .intro p + p { margin-top: calc(var(--rhythm) - 7px); }
+         .intro p + p { margin-top: max(var(--rhythm), 1.7em); }
          .certification { display: inline-flex; align-items: center; gap: 11px; min-height: 44px; margin-top: var(--rhythm); padding: 7px 0; color: var(--lilac); font-size: 1rem; line-height: 1.4; }
          .certification svg:first-child { width: 25px; height: 25px; }
          .certification:hover { color: var(--lime); }
          .certification .cert-label { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #77638e; }
          .certification:hover .cert-label { text-decoration-color: currentColor; }
-         .insight { min-width: 0; background: linear-gradient(155deg, #3a314c, #302a40); border: 1px solid #685a7b; border-radius: 13px; box-shadow: 0 14px 44px #15111e26; }
+         .insight { align-self: start; min-width: 0; background: linear-gradient(155deg, #3a314c, #302a40); border: 1px solid #685a7b; border-radius: 13px; box-shadow: 0 14px 44px #15111e26; }
          .tablist { display: flex; gap: 6px; padding: 8px; border-bottom: 1px solid var(--line); }
          .tab { cursor: pointer; flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; border: 0; border-radius: 6px; min-height: 40px; padding: 7px 12px; background: transparent; color: var(--quiet); font-size: 1rem; line-height: 1.4; transition: background .15s ease, color .15s ease; }
          .tab:hover { color: var(--paper); background: #443954; }
@@ -133,11 +133,19 @@
          .project-tag { color: var(--quiet); font-size: 1rem; }
          .project-extra { display: inline-flex; align-items: center; gap: 6px; color: var(--lilac); font-size: 1rem; min-height: 24px; text-decoration: underline; text-underline-offset: 3px; }
          .project-extra:hover { color: var(--lime); }
-         .toolbox { display: flex; align-items: baseline; gap: 26px; padding-top: 18px; border-top: 1px solid var(--line); }
-         .toolbox h2 { flex: none; font-size: 1rem; font-weight: 400; color: var(--quiet); }
+         .footline { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 14px 44px; padding-top: 18px; border-top: 1px solid var(--line); }
+         .toolbox, .practice { display: flex; align-items: baseline; min-width: 0; }
          .skills { display: flex; flex-wrap: wrap; align-items: baseline; list-style: none; padding: 0; margin: 0; gap: 2px 13px; }
          .skills li { font-size: 1.25rem; letter-spacing: -.03em; line-height: 1.45; }
-         .skills li:not(:last-child)::after { content: '+'; margin-left: 13px; color: var(--lilac); font-size: 1rem; }
+         .skills li:not(:last-child)::after { content: '/'; margin-left: 13px; color: var(--lilac); font-size: 1rem; }
+         .profiles { display: flex; flex-wrap: wrap; align-items: baseline; list-style: none; padding: 0; margin: 0; gap: 2px 19px; }
+         .profile-link { display: inline-block; padding-block: 4px; color: var(--quiet); font-size: 1rem; line-height: 1.45; }
+         .profile-link svg { display: inline-block; vertical-align: -.19em; width: 17px; height: 17px; margin-right: 8px; color: var(--lilac); transition: color .15s ease; }
+         .profile-link span { position: relative; }
+         .profile-link span::after { content: ''; position: absolute; left: 0; right: 0; bottom: -3px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .2s ease; }
+         .profile-link:hover { color: var(--lime); }
+         .profile-link:hover span::after { transform: scaleX(1); }
+         .profile-link:hover svg { color: var(--lime); }
          .contact { flex: none; background: var(--lime); color: var(--ink); }
          .contact-inner { min-height: 68px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px 24px; padding-block: 10px; }
          .contact-details { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 22px; }
@@ -146,12 +154,15 @@
          .email:hover { text-decoration: underline; text-underline-offset: 5px; }
          .contact .text-link:hover { color: var(--ink); }
          .contact a:focus-visible { outline-color: var(--ink); }
-         @media (max-width: 1100px) { .wrap { width: calc(100% - 64px); } .stage { gap: 32px; } .profile { --rhythm: 39px; } .career-item h3 { font-size: 1.0625rem; } }
+         @media (min-width: 960px) { .stage { min-height: 33rem; } }
+         @media (min-width: 1000px) { .stage { min-height: 31.5rem; } }
+         @media (max-width: 1100px) { .wrap { width: calc(100% - 64px); } .stage { gap: 32px; } .career-item h3 { font-size: 1.0625rem; } }
          @media (min-width: 960px) and (max-height: 800px) {
+             .stage { min-height: 29rem; }
              .header { min-height: 64px; }
              .main { padding-block: 16px; gap: 16px; }
              h1 { font-size: 3rem; }
-             .profile { --rhythm: 32px; }
+             .profile { --rhythm: 26px; }
              .role { font-size: 1.4rem; }
              .intro { line-height: 1.6; }
              .panel { padding: 15px 21px; }
@@ -162,7 +173,7 @@
              .career-path { margin-top: 11px; }
              .projects-panel { padding: 7px 18px; }
              .project { padding-block: 6px; }
-             .toolbox { padding-top: 13px; }
+             .footline { padding-top: 13px; }
              .contact-inner { min-height: 62px; padding-block: 7px; }
          }
          @media (max-width: 959px) {
@@ -173,7 +184,7 @@
              .panel { padding: 23px; }
              .career-item + .career-item { margin-top: 30px; }
              .projects-panel { padding: 9px 20px; }
-             .toolbox { flex-direction: column; align-items: flex-start; gap: 10px; }
+             .footline { gap: 22px; }
          }
          @media (max-width: 600px) {
              .wrap { width: calc(100% - 40px); }
@@ -311,10 +322,20 @@
                         </div>
                     </section>
                 </div>
-                <section class="toolbox" aria-labelledby="skills-title">
-                    <h2 id="skills-title">Day to day</h2>
-                    <ul class="skills"><li>Linux</li><li>Go</li><li>Python</li><li>Emacs</li></ul>
-                </section>
+                <div class="footline">
+                    <section class="toolbox" aria-labelledby="skills-title">
+                        <h2 class="sr-only" id="skills-title">Day to day</h2>
+                        <ul class="skills"><li>Linux</li><li>Go</li><li>Python</li><li>Emacs</li></ul>
+                    </section>
+                    <section class="practice" aria-labelledby="practice-title">
+                        <h2 class="sr-only" id="practice-title">Security labs and coding practice</h2>
+                        <ul class="profiles">
+                            <li><a class="profile-link" href="https://app.hackthebox.com/users/1605074" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.51 6.46v-.02a1 1 0 0 0-.27-.63l-.03-.03-.05-.05-.06-.04-.03-.02L12.46.13a.9.9 0 0 0-.92 0l-9.6 5.54-.04.02-.02.02-.02.01-.15.14a1 1 0 0 0-.22.58v11.12c0 .32.18.62.47.78l9.6 5.54.02.01.17.07.04.01.07.02h.28l.07-.02h.04l.07-.03.1-.05h.02l9.6-5.55a.9.9 0 0 0 .47-.78V6.46M5.25 6.08l6.54-3.77a.4.4 0 0 1 .42 0l6.54 3.77a.42.42 0 0 1 0 .73l-6.54 3.77a.4.4 0 0 1-.42 0L5.25 6.81a.42.42 0 0 1 0-.73m5.62 14.35a.42.42 0 0 1-.63.36l-6.52-3.77a.4.4 0 0 1-.21-.36V9.13a.42.42 0 0 1 .63-.36l6.52 3.76a.4.4 0 0 1 .2.36zm9.62-3.77a.4.4 0 0 1-.2.36l-6.53 3.77a.42.42 0 0 1-.63-.36v-7.54q0-.22.21-.36l6.52-3.76a.42.42 0 0 1 .63.36z"/></svg><span>Hack The Box</span></a></li>
+                            <li><a class="profile-link" href="https://tryhackme.com/p/ismd" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.7 0a6.5 6.5 0 0 0-6.35 5.3 4.53 4.53 0 0 0-4.1 4.5 4.53 4.53 0 0 0 4.51 4.51h6.76a.63.63 0 1 0 0-1.25H4.76A3.27 3.27 0 0 1 1.5 9.8a3.27 3.27 0 0 1 5.1-2.71.63.63 0 0 0 .7-1.03 5 5 0 0 0-1.68-.7 5.2 5.2 0 0 1 5.1-4.1 5.2 5.2 0 0 1 5.17 4.57l-.49.3a.63.63 0 1 0 .73 1.02 3.3 3.3 0 0 1 1.92-.62 3.3 3.3 0 0 1 3.2 2.61.63.63 0 0 0 1.22-.25 4.5 4.5 0 0 0-4.42-3.6 5 5 0 0 0-.96.1A6.5 6.5 0 0 0 10.7 0m5.2 10.64a1 1 0 0 0-.47.1 1 1 0 0 0-.3.3 1 1 0 0 0-.18.43 2 2 0 0 0-.06.5q0 .28.06.53.05.24.17.43a1 1 0 0 0 .32.3q.18.1.46.1a1 1 0 0 0 .46-.1 1 1 0 0 0 .3-.3q.13-.2.18-.43a2.4 2.4 0 0 0 0-1.03 1 1 0 0 0-.17-.43 1 1 0 0 0-.31-.3 1 1 0 0 0-.46-.1m6.48 0a1 1 0 0 0-.46.1 1 1 0 0 0-.31.3 1 1 0 0 0-.18.43 2 2 0 0 0-.05.5q0 .28.05.53.06.24.18.43a1 1 0 0 0 .31.3q.2.1.46.1a1 1 0 0 0 .46-.1 1 1 0 0 0 .31-.3q.12-.2.18-.43a2.4 2.4 0 0 0 0-1.03 1 1 0 0 0-.18-.43 1 1 0 0 0-.3-.3 1 1 0 0 0-.47-.1m-8.53.07-.84.62.3.43.48-.37v1.87h.6v-2.55zm6.48 0-.84.62.31.43.48-.37v1.87h.6v-2.55zm-4.43.44q.12 0 .19.09t.11.2.06.28a3 3 0 0 1 0 .53q-.02.15-.06.27a1 1 0 0 1-.11.2.2.2 0 0 1-.2.1.3.3 0 0 1-.19-.1 1 1 0 0 1-.12-.2l-.05-.27a3 3 0 0 1 0-.53q.01-.15.05-.27a1 1 0 0 1 .12-.21.3.3 0 0 1 .2-.09m6.48 0q.12 0 .2.09.07.08.11.2t.05.28a3 3 0 0 1 0 .53q0 .15-.05.27a1 1 0 0 1-.11.2.2.2 0 0 1-.2.1.3.3 0 0 1-.2-.1 1 1 0 0 1-.1-.2l-.07-.27a3 3 0 0 1 0-.53q.01-.15.06-.27a1 1 0 0 1 .12-.21.3.3 0 0 1 .2-.09m-2.19 3.51a1 1 0 0 0-.46.11 1 1 0 0 0-.31.3q-.12.18-.18.42a2 2 0 0 0-.05.51q0 .27.05.52.06.24.18.43a1 1 0 0 0 .3.3 1 1 0 0 0 .47.1 1 1 0 0 0 .46-.1 1 1 0 0 0 .31-.3 1 1 0 0 0 .17-.43 2.4 2.4 0 0 0 0-1.03 1 1 0 0 0-.17-.43 1 1 0 0 0-.3-.29 1 1 0 0 0-.47-.1zm-6.4.07-.84.62.31.43.48-.37v1.88h.6v-2.56zm2.13 0-.85.62.32.43.47-.37v1.88h.6v-2.56zm2.11 0-.84.62.31.43.48-.37v1.88h.6v-2.56zm2.16.45q.11 0 .2.08a1 1 0 0 1 .1.21q.05.12.06.27a3 3 0 0 1 0 .53l-.05.27a1 1 0 0 1-.12.21.2.2 0 0 1-.19.09.3.3 0 0 1-.2-.09 1 1 0 0 1-.11-.2l-.06-.28a3 3 0 0 1 0-.53q.02-.15.06-.27a1 1 0 0 1 .12-.2.3.3 0 0 1 .2-.1m-6.73 3.07a1 1 0 0 0-.33.08 1 1 0 0 0-.23.2 1 1 0 0 0-.13.32 2 2 0 0 0 0 .75 1 1 0 0 0 .13.3 1 1 0 0 0 .23.22q.13.08.33.08a1 1 0 0 0 .34-.08 1 1 0 0 0 .22-.21q.09-.15.13-.31a2 2 0 0 0 .04-.38q0-.2-.04-.37a1 1 0 0 0-.13-.31 1 1 0 0 0-.22-.21 1 1 0 0 0-.34-.08zm3.09 0a1 1 0 0 0-.34.08 1 1 0 0 0-.22.2 1 1 0 0 0-.13.32 2 2 0 0 0-.04.37q0 .2.04.38a1 1 0 0 0 .13.3q.08.15.22.22t.34.08a1 1 0 0 0 .33-.08 1 1 0 0 0 .23-.21q.08-.15.12-.31a2 2 0 0 0 0-.75 1 1 0 0 0-.12-.31 1 1 0 0 0-.23-.21 1 1 0 0 0-.33-.08zm5.1 0a1 1 0 0 0-.33.08 1 1 0 0 0-.23.2 1 1 0 0 0-.12.32 2 2 0 0 0 0 .75 1 1 0 0 0 .12.3q.1.15.23.22.14.08.34.08t.33-.08a1 1 0 0 0 .22-.21q.09-.15.13-.31a2 2 0 0 0 .04-.38q0-.2-.04-.37a1 1 0 0 0-.13-.31 1 1 0 0 0-.22-.21 1 1 0 0 0-.33-.08zM15 18.3l-.61.45.22.3.35-.26v1.36h.44V18.3zm3.07 0-.61.45.22.3.35-.26v1.36h.44V18.3zm5.1 0-.6.45.22.3.35-.26v1.36h.43V18.3zm-9.7.32q.08 0 .13.06l.09.15.04.2v.39l-.05.2-.08.14a.2.2 0 0 1-.14.07.2.2 0 0 1-.14-.06l-.08-.16-.05-.2v-.38l.04-.2.1-.15a.2.2 0 0 1 .13-.06m3.08 0q.09 0 .14.06l.08.15.04.2a2 2 0 0 1 0 .39l-.04.2-.08.14a.2.2 0 0 1-.14.07.2.2 0 0 1-.14-.06.4.4 0 0 1-.09-.16l-.04-.2-.01-.19.01-.19.04-.2.09-.15a.2.2 0 0 1 .14-.06m5.1 0q.09 0 .15.06l.08.15.04.2v.39l-.04.2-.08.14a.2.2 0 0 1-.14.07.2.2 0 0 1-.15-.06l-.08-.16-.04-.2-.01-.19v-.19l.05-.2.08-.15a.2.2 0 0 1 .15-.06m-1.68 1.81a1 1 0 0 0-.33.08 1 1 0 0 0-.23.21 1 1 0 0 0-.13.31 2 2 0 0 0 0 .75 1 1 0 0 0 .13.32q.09.13.23.21t.33.08a1 1 0 0 0 .34-.08 1 1 0 0 0 .22-.21q.09-.14.13-.32a2 2 0 0 0 0-.75 1 1 0 0 0-.13-.3 1 1 0 0 0-.22-.22 1 1 0 0 0-.34-.07m3.06 0a1 1 0 0 0-.33.08 1 1 0 0 0-.23.21 1 1 0 0 0-.13.31 2 2 0 0 0 0 .75 1 1 0 0 0 .13.32 1 1 0 0 0 .23.21q.14.08.33.08a1 1 0 0 0 .34-.08 1 1 0 0 0 .22-.21q.09-.14.13-.32a2 2 0 0 0 0-.75 1 1 0 0 0-.13-.3 1 1 0 0 0-.22-.22 1 1 0 0 0-.34-.07m-1.54.05-.61.45.23.32.34-.27v1.36h.44V20.5zm-1.52.33q.09 0 .14.06l.08.15.04.2v.38l-.04.2-.08.15a.2.2 0 0 1-.14.06.2.2 0 0 1-.14-.06l-.09-.15-.04-.2v-.38l.04-.2.09-.15a.2.2 0 0 1 .14-.06m3.06 0q.08 0 .14.06l.09.15.04.2v.38l-.04.2-.09.15a.2.2 0 0 1-.14.06.2.2 0 0 1-.14-.06l-.08-.15-.04-.2v-.38l.04-.2.08-.15a.2.2 0 0 1 .14-.06m-9.7.18a1 1 0 0 0-.24.06 1 1 0 0 0-.16.14 1 1 0 0 0-.09.22l-.02.26q0 .13.02.26a1 1 0 0 0 .1.21q.05.1.15.15a1 1 0 0 0 .23.06q.14 0 .23-.06a1 1 0 0 0 .16-.15l.09-.21a1 1 0 0 0 0-.52 1 1 0 0 0-.1-.22 1 1 0 0 0-.15-.14 1 1 0 0 0-.23-.06m1.04.04-.42.3.16.22.24-.18v.94h.3v-1.28zm-1.05.22q.06 0 .1.04l.06.1.02.15v.26l-.02.14-.06.1a.1.1 0 0 1-.1.05.1.1 0 0 1-.1-.05l-.06-.1-.02-.14v-.26l.02-.14.06-.1a.1.1 0 0 1 .1-.05m3.78 1.4a1 1 0 0 0-.24.05 1 1 0 0 0-.15.15 1 1 0 0 0-.09.21 1 1 0 0 0 0 .52 1 1 0 0 0 .09.22 1 1 0 0 0 .15.15 1 1 0 0 0 .24.05 1 1 0 0 0 .23-.06 1 1 0 0 0 .15-.14 1 1 0 0 0 .1-.22 1 1 0 0 0 0-.52 1 1 0 0 0-.1-.21 1 1 0 0 0-.15-.15 1 1 0 0 0-.23-.05m1.05.03-.42.31.15.22.24-.19v.95h.3v-1.29zm-1.05.22q.06 0 .1.05l.05.1.03.14v.26l-.03.14-.06.1a.1.1 0 0 1-.1.05.1.1 0 0 1-.1-.04l-.05-.1-.03-.15v-.26l.03-.14.06-.1a.1.1 0 0 1 .1-.05"/></svg><span>TryHackMe</span></a></li>
+                            <li><a class="profile-link" href="https://www.codewars.com/users/ismd" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.8 1.96a.9.9 0 0 1 .84.54.78.78 0 0 1 1.27.5 1 1 0 0 1 .29-.07c.33.01.59.26.63.58a1.3 1.3 0 0 1 .62-.52 1.33 1.33 0 0 1 1.72.71 1 1 0 0 1 .3-.23 1.1 1.1 0 0 1 1.49.47 1 1 0 0 1 .12.47 1 1 0 0 1 1.32 1.22.9.9 0 0 1 .87 1.44.78.78 0 0 1 .18 1.35 1 1 0 0 1 .19.23.6.6 0 0 1-.01.61 1 1 0 0 1 .48.24 1.33 1.33 0 0 1 .26 1.84 1 1 0 0 1 .35.15 1.1 1.1 0 0 1 .33 1.51 1 1 0 0 1-.34.35 1 1 0 0 1 .23 1.32 1 1 0 0 1-.6.43.9.9 0 0 1-.81 1.48v-.04a.78.78 0 0 1-1.08.87 1 1 0 0 1-.1.28.6.6 0 0 1-.43.3 1 1 0 0 1 .02.45 1.33 1.33 0 0 1-1.44 1.17 1 1 0 0 1 .06.38 1.1 1.1 0 0 1-1.13 1.07 1 1 0 0 1-.47-.12 1 1 0 0 1-1.7.58.9.9 0 0 1-1.68.08.78.78 0 0 1-1.28-.5 1 1 0 0 1-.29.07.64.64 0 0 1-.62-.58 1.3 1.3 0 0 1-.63.52 1.33 1.33 0 0 1-1.71-.71 1 1 0 0 1-.31.23 1.1 1.1 0 0 1-1.48-.48 1 1 0 0 1-.12-.47 1 1 0 0 1-1.32-1.2.9.9 0 0 1-.87-1.45.78.78 0 0 1-.18-1.36 1 1 0 0 1-.2-.22.6.6 0 0 1 .02-.61h.02a1 1 0 0 1-.5-.24 1.33 1.33 0 0 1-.26-1.84 1 1 0 0 1-.35-.15 1.1 1.1 0 0 1-.34-1.52 1 1 0 0 1 .35-.34A1 1 0 0 1 2.88 9a.9.9 0 0 1 .8-1.48.78.78 0 0 1 1.09-.84 1 1 0 0 1 .1-.28.7.7 0 0 1 .43-.28 1 1 0 0 1-.03-.46A1.33 1.33 0 0 1 6.72 4.5a1 1 0 0 1-.06-.38 1.1 1.1 0 0 1 1.13-1.07 1 1 0 0 1 .47.12 1 1 0 0 1 1.7-.58.9.9 0 0 1 .85-.62M3.69 7.52l.01.04zM17.5 19.6h-.04zM11.46 3.49a1 1 0 0 1-.67.28 1 1 0 0 1-.58-.24 1 1 0 0 1-1 .74 1 1 0 0 1-.35-.08A1.1 1.1 0 0 1 7.8 5.24a1.3 1.3 0 0 1 .12.73 1.3 1.3 0 0 1-.73 1.04 1 1 0 0 1 .31.8 1 1 0 0 1-.23.64c.32.18.53.53.52.92a1 1 0 0 1-.07.34.9.9 0 0 1 .82.93v.14l.15-.01c.34 0 .63.25.7.57a.7.7 0 0 1 .38-.11c.31 0 .56.22.63.51a.4.4 0 0 1 .38-.01 1.4 1.4 0 0 1 .3-.64l-.11-.14a.4.4 0 0 1 0-.39.67.67 0 0 1-.32-1.12.7.7 0 0 1-.36-.33.74.74 0 0 1 .38-1.03l-.06.03a1 1 0 0 1-.2-.26.92.92 0 0 1 .62-1.32 1 1 0 0 1 .44-1.37 1 1 0 0 1 .55-.11 1.1 1.1 0 0 1 .6-1.06l.06-.02a1 1 0 0 1-.1-.21 1 1 0 0 1-.46.13.8.8 0 0 1-.66-.4m4.57 1.52a1.3 1.3 0 0 1-.59.46 1.3 1.3 0 0 1-1.25-.15 1.1 1.1 0 0 1-.56.65 1 1 0 0 1-.68.12 1 1 0 0 1-.55.88 1 1 0 0 1-.33.1.9.9 0 0 1-.43 1.18l-.13.05.09.13a.74.74 0 0 1-.17.9.7.7 0 0 1 .28.28.7.7 0 0 1-.15.8.4.4 0 0 1 .15.16l.04.1a1.4 1.4 0 0 1 .67-.02l.06-.14a.4.4 0 0 1 .34-.2.67.67 0 0 1 .8-.84.7.7 0 0 1 .1-.48.73.73 0 0 1 1.02-.22 1 1 0 0 1 .13-.3.9.9 0 0 1 1.27-.29l.18.15a1 1 0 0 1 1.4-.31 1 1 0 0 1 .38.42 1.1 1.1 0 0 1 1.22-.01l.2.17.09-.1a1 1 0 0 1-.34-.35.8.8 0 0 1 .03-.77 1 1 0 0 1-.55-.45 1 1 0 0 1-.07-.62 1 1 0 0 1-1.12-.52 1 1 0 0 1-.1-.35A1.1 1.1 0 0 1 16.03 5M5.25 7.37a1 1 0 0 1-.13.46.8.8 0 0 1-.68.36 1 1 0 0 1-.1.71 1 1 0 0 1-.5.38 1 1 0 0 1 .11 1.22 1 1 0 0 1-.25.27 1.1 1.1 0 0 1 .35 1.45 1.3 1.3 0 0 1 .69.28 1.3 1.3 0 0 1 .51 1.15q.43-.1.84.15a1 1 0 0 1 .44.53 1 1 0 0 1 1.05.03 1 1 0 0 1 .26.23.9.9 0 0 1 1.22-.22l.11.09.07-.15a.74.74 0 0 1 .86-.3.7.7 0 0 1 .1-.38.7.7 0 0 1 .76-.28.4.4 0 0 1 .25-.37 1.4 1.4 0 0 1-.36-.52v-.01a.4.4 0 0 1-.25.08.4.4 0 0 1-.35-.2.67.67 0 0 1-1.13-.24.7.7 0 0 1-.47.15.73.73 0 0 1-.72-.75 1 1 0 0 1-.33.05.92.92 0 0 1-.85-1.18 1 1 0 0 1-1-1.04 1 1 0 0 1 .17-.54 1.1 1.1 0 0 1-.64-1.03 1 1 0 0 1 .07-.36zM16.38 9.5a.9.9 0 0 1-1.23.23l-.11-.09-.07.15a.74.74 0 0 1-.85.3.7.7 0 0 1-.1.38.66.66 0 0 1-.77.28.4.4 0 0 1-.06.21l-.08.09a1.4 1.4 0 0 1 .32.56.4.4 0 0 1 .19-.04.4.4 0 0 1 .34.2.67.67 0 0 1 1.13.24.7.7 0 0 1 .47-.15c.41 0 .73.34.72.75a1 1 0 0 1 .33-.05.9.9 0 0 1 .9.94l-.04.24c.56.01 1 .48.99 1.05a1 1 0 0 1-.17.53 1.1 1.1 0 0 1 .65 1.03 1 1 0 0 1-.08.37v-.01l.1.02a1 1 0 0 1 .13-.46.8.8 0 0 1 .68-.37 1 1 0 0 1 .11-.7 1 1 0 0 1 .5-.38 1 1 0 0 1-.12-1.22 1 1 0 0 1 .26-.27 1.1 1.1 0 0 1-.35-1.46 1.3 1.3 0 0 1-.7-.27 1.3 1.3 0 0 1-.5-1.16 1 1 0 0 1-.85-.14 1 1 0 0 1-.44-.54 1 1 0 0 1-1.05-.02 1 1 0 0 1-.25-.24m-.1 3.12v.07zm-2.86-.26a1.4 1.4 0 0 1-.37.6.4.4 0 0 1 .2.18.4.4 0 0 1 0 .4.67.67 0 0 1 .32 1.11.7.7 0 0 1 .36.34.74.74 0 0 1-.32 1 1 1 0 0 1 .2.25.9.9 0 0 1-.4 1.24l-.22.08a1 1 0 0 1-.44 1.38 1 1 0 0 1-.55.1 1.1 1.1 0 0 1-.67 1.09 1 1 0 0 1 .12.21 1 1 0 0 1 .45-.13.8.8 0 0 1 .66.4 1 1 0 0 1 .66-.28 1 1 0 0 1 .6.24 1 1 0 0 1 .97-.74 1 1 0 0 1 .37.08v.02a1.1 1.1 0 0 1 1.06-1.07 1.3 1.3 0 0 1-.13-.74c.06-.46.34-.83.73-1.03a1 1 0 0 1-.3-.8 1 1 0 0 1 .22-.65 1 1 0 0 1-.45-1.25.9.9 0 0 1-.82-.93l.01-.14-.16.01a.74.74 0 0 1-.7-.57.7.7 0 0 1-.38.11.7.7 0 0 1-.63-.51.4.4 0 0 1-.21.05.4.4 0 0 1-.18-.04zm-.97.93a1 1 0 0 1-.33.04 1 1 0 0 1-.32-.04.4.4 0 0 1-.06.3.4.4 0 0 1-.35.2.67.67 0 0 1-.79.84.7.7 0 0 1-.11.48.74.74 0 0 1-1.02.22 1 1 0 0 1-.13.3.9.9 0 0 1-1.26.29l-.19-.16a1 1 0 0 1-1.4.32 1 1 0 0 1-.38-.42 1.1 1.1 0 0 1-1.21.01l-.21-.17-.08.1a1 1 0 0 1 .33.34.8.8 0 0 1-.03.77 1 1 0 0 1 .55.46 1 1 0 0 1 .08.62 1 1 0 0 1 1.12.52 1 1 0 0 1 .1.35 1.1 1.1 0 0 1 1.43.43 1.3 1.3 0 0 1 .58-.46c.43-.17.9-.1 1.26.14a1 1 0 0 1 .55-.65 1 1 0 0 1 .68-.1 1 1 0 0 1 .55-.9 1 1 0 0 1 .34-.1.9.9 0 0 1 .42-1.17l.13-.05-.09-.14a.74.74 0 0 1 .17-.88.7.7 0 0 1-.28-.29.7.7 0 0 1 .15-.8.4.4 0 0 1-.15-.16.4.4 0 0 1-.05-.24"/></svg><span>Codewars</span></a></li>
+                        </ul>
+                    </section>
+                </div>
             </main>
             <footer class="contact">
                 <div class="contact-inner wrap">
